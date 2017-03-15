@@ -31,14 +31,19 @@ jobs:
 
             inputs:
               - name: sources
- 
+
+# neradi            run:
+# neradi              path: /usr/sbin/python3
+# neradi              dir: sources/src
+# neradi              args:
+# neradi                - "-m unittest"
+# neradi                - "discover"
+# neradi                - "--start-directory test/"
+
             run:
-              path: python3
-              dir: sources/src
-              args:
-                - -m unittest
-                - discover
-                - --start-directory test/
+              path: task-package.sh
+              dir: sources/ci
+
 
     - name: package
       plan:
