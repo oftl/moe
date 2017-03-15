@@ -1,6 +1,6 @@
 sources-uri: https://github.com/oftl/moe.git
 sources-branch: master
 
-insecure-registries: "172.27.0.4:5000"
-moe-ci-image: 172.27.0.4:5000/moe-ci
-moe-final-image: 172.27.0.4:5000/moe-final
+insecure-registries: "<ip of registry>:5000"
+moe-ci-image: <ip of registry>:5000/moe-ci
+moe-final-image: <ip of registry>:5000/moe-final
