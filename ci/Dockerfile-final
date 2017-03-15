@@ -3,9 +3,9 @@ LABEL maintainer=ci@dh.univie.ac.at \
       vendor=DHUniWien
 
 RUN /usr/bin/pacman --noconfirm --sync --refresh \
- && /usr/bin/pacman --noconfirm --sync python-bottle
-
-RUN /usr/bin/mkdir -p /var/www/moe/
+ && /usr/bin/pacman --noconfirm --sync python-bottle awk \
+ && /usr/bin/paccache -r \
+ && /usr/bin/mkdir -p /var/www/moe/
 
 COPY src /var/www/moe
 WORKDIR /var/www/moe/
