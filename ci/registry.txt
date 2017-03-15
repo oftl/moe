@@ -1,0 +1,21 @@
+# create private registry
+docker create --name registry --publish 127.0.0.1:5000:5000 registry:2
+
+VERSION=0.1
+REGISTRY=registry:5000
+
+/etc/hosts:
+<ip of registry> registry
+
+### moe-ci
+
+docker build \
+    --file Dockerfile-ci \
+    --tag moe-ci:${VERSION} \
+.
+
+docker tag moe-ci:${VERSION} ${REGISTRY}/moe-ci:${VERSION}
+docker push ${REGISTRY}/moe-ci:${VERSION}
+
+docker tag moe-ci:${VERSION} ${REGISTRY}/moe-ci:latest
+docker push ${REGISTRY}/moe-ci:latest
