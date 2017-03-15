@@ -60,4 +60,4 @@ jobs:
         - put: moe-final-image
           params:
             # The path of a directory containing a Dockerfile to build.
-            build: sources/
+            dockerfile: sources/Dockerfile-final
