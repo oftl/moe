@@ -29,16 +29,16 @@ jobs:
                 repository: {{moe-ci-image}}
                 insecure_registries: [ {{insecure-registries}} ]
 
-          inputs:
-            - name: sources
-
-          run:
-            path: /usr/bin/python3
-            dir: sources/src
-            args:
-              - -m unittest
-              - discover
-              - --start-directory test/
+            inputs:
+              - name: sources
+ 
+            run:
+              path: python3
+              dir: sources/src
+              args:
+                - -m unittest
+                - discover
+                - --start-directory test/
 
     - name: package
       plan:
