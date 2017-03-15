@@ -4,7 +4,7 @@ LABEL maintainer=ci@dh.univie.ac.at \
 
 RUN /usr/bin/pacman --noconfirm --sync --refresh \
  && /usr/bin/pacman --noconfirm --sync python-bottle awk \
- && /usr/bin/paccache -r \
+ && /usr/bin/paccache -r
 
 RUN /usr/bin/mkdir -p /var/www/moe/
 
