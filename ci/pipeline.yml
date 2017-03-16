@@ -13,6 +13,16 @@ resources:
         repository: {{moe-final-image}}
         insecure_registries: [ {{insecure-registries}} ]
 
+    - name: version
+      type: semver
+      source:
+        driver: git
+        uri: {{version-uri}}
+        branch: {{version-branch}}
+        file: {{version-file}}
+        initial_version: "0.0.0"
+        private_key: {{github-private-key}}
+
 jobs:
     - name: test
       plan:
@@ -53,6 +63,10 @@ jobs:
 
     - name: package
       plan:
+        - put: version
+          params:
+            bump: patch
+
         - get: sources
           trigger: true
           passed: [test]
@@ -62,3 +76,4 @@ jobs:
             # The path of a directory containing a Dockerfile to build.
             build: sources/
             dockerfile: sources/ci/Dockerfile-final
+            tag: version/version
