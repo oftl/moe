@@ -1,1 +1,4 @@
 ci/pipeline-config.yml
+ci/git-ssh
+git-ssh/id_rsa
+git-ssh/id_rsa.pub
