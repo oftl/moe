@@ -9,13 +9,10 @@ REGISTRY=registry:5000
 
 ### moe-ci
 
-docker build \
-    --file Dockerfile-ci \
-    --tag moe-ci:${VERSION} \
-.
-
-docker tag moe-ci:${VERSION} ${REGISTRY}/moe-ci:${VERSION}
-docker push ${REGISTRY}/moe-ci:${VERSION}
-
-docker tag moe-ci:${VERSION} ${REGISTRY}/moe-ci:latest
+docker build --file Dockerfile-ci --tag moe-ci:latest .
+docker tag moe-ci:latest ${REGISTRY}/moe-ci:latest
 docker push ${REGISTRY}/moe-ci:latest
+
+docker build --file Dockerfile-final-base --tag moe-final-base:latest .
+docker tag moe-final-base:latest ${REGISTRY}/moe-final-base:latest
+docker push ${REGISTRY}/moe-final-base:latest
