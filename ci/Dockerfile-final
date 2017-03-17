@@ -1,11 +1,4 @@
-FROM base/archlinux
-LABEL maintainer=ci@dh.univie.ac.at \
-      vendor=DHUniWien
-
-RUN /usr/bin/pacman --noconfirm --sync --refresh \
- && /usr/bin/pacman --noconfirm --sync python-bottle awk \
- && /usr/bin/paccache -r \
- && /usr/bin/mkdir -p /var/www/moe/
+FROM 172.27.0.2:5000/moe-final-base
 
 COPY src /var/www/moe
 WORKDIR /var/www/moe/

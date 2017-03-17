@@ -1,0 +1,8 @@
+FROM base/archlinux
+LABEL maintainer=ci@dh.univie.ac.at \
+      vendor=DHUniWien
+
+RUN /usr/bin/pacman --noconfirm --sync --refresh \
+ && /usr/bin/pacman --noconfirm --sync python-bottle awk \
+ && /usr/bin/paccache -r \
+ && /usr/bin/mkdir -p /var/www/moe/
