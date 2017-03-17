@@ -5,7 +5,7 @@ resources:
       source:
         uri: {{sources-uri}}
         branch: {{sources-branch}}
-        # paths: [src]
+        paths: [src]
 
     - name: moe-final-image
       type: docker-image
@@ -29,7 +29,7 @@ jobs:
         - get: sources
           trigger: true
 
-        - task: task-package
+        - task: task-test
 
           config:
             platform: linux
