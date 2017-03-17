@@ -1,10 +1,6 @@
 from bottle import route, run, template
 import lib.math
 
-@route ('/')
-def index(name):
-    return template('<b>Hello DH</b>!')
-
 @route ('/hello/<name>')
 def index(name):
     return template('<b>Hello {{name}}</b>!', name=name)
