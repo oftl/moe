@@ -21,7 +21,7 @@ resources:
         branch: {{version-branch}}
         file: {{version-file}}
         initial_version: "0.0.0"
-        private_key: {{github-private-key}}
+        private_key: {{DHUniWienMU-priv-key}}
 
 jobs:
     - name: test

@@ -1,4 +1,4 @@
-FROM 172.27.0.2:5000/moe-final-base
+FROM registry:5000/moe-final-base
 
 COPY src /var/www/moe
 WORKDIR /var/www/moe/
